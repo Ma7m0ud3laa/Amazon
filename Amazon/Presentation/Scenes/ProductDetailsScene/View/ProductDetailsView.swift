@@ -13,49 +13,60 @@ struct ProductDetailsView<ViewModel: ProductDetailsViewModelProtocol>: View {
     
     var body: some View {
         
-        ScrollView {
+        ZStack {
             
-            VStack {
-                
-                CacheAsyncImage(url: self.viewModel.output.imageURL,
-                                transaction: .init(animation: .easeOut)) { phase in
-                    switch phase {
-                    case let .success(image):
-                        image
-                            .resizable()
-                    default:
-                        Image("PlaceholderImage")
-                            .resizable()
+            Color("Background").edgesIgnoringSafeArea(.all)
+
+            
+            ScrollView {
+            
+                VStack {
+                    
+                    CacheAsyncImage(url: self.viewModel.output.imageURL,
+                                    transaction: .init(animation: .easeOut)) { phase in
+                        switch phase {
+                        case let .success(image):
+                            image
+                                .resizable()
+                        default:
+                            Image("PlaceholderImage")
+                                .resizable()
+                        }
                     }
-                }
-                                .frame(maxWidth: .infinity)
-                                .aspectRatio(1, contentMode: .fit)
- 
-                Text(self.viewModel.output.name)
-                    .foregroundColor(.black)
-                    .font(.headline)
-                    .fontWeight(.semibold)
-                    .multilineTextAlignment(.center)
-                    .padding()
-                
-                HStack() {
-                    Text("Price")
+                                    .frame(maxWidth: .infinity)
+                                    .aspectRatio(1, contentMode: .fit)
+     
+                    Text(self.viewModel.output.name)
+                        .foregroundColor(.black)
                         .font(.headline)
                         .fontWeight(.semibold)
+                        .multilineTextAlignment(.center)
+                        .padding()
                     
-                    Spacer()
+                    HStack() {
+                        Text("Price")
+                            .font(.headline)
+                            .fontWeight(.semibold)
+                        
+                        Spacer()
+                        
+                        Text(self.viewModel.output.price)
+                            .foregroundColor(.secondary)
+                            .font(.subheadline)
+                            .fontWeight(.semibold)
+                    }
+                    .padding()
                     
-                    Text(self.viewModel.output.price)
-                        .foregroundColor(.secondary)
-                        .font(.subheadline)
-                        .fontWeight(.semibold)
                 }
-                .padding()
-                
+                .navigationBarBackButtonHidden(true)
+                .navigationBarItems(leading:
+                                        Image(systemName: "chevron.left")
+                                            .padding(.all, 10)
+                                            .background(Color.white))
+                                            .cornerRadius(10)
             }
-            
-            
-            
+            .edgesIgnoringSafeArea(.top)
+
         }
     }
         
