@@ -9,6 +9,8 @@ import Foundation
 
 
 protocol HomeViewModelInput {
+    var searchText: String { get set }
+    
     func viewDidLoad()
     func refresherFired()
 }
@@ -20,7 +22,7 @@ protocol HomeViewModelOutput {
 }
 
 protocol HomeViewModelProtocol: ObservableObject {
-    var input: HomeViewModelInput { get }
+    var input: HomeViewModelInput { get set }
     var output: HomeViewModelOutput { get set }
 }
 
@@ -30,7 +32,8 @@ class HomeViewModel: HomeViewModelProtocol, HomeViewModelInput, HomeViewModelOut
     
     
     var input: HomeViewModelInput {
-        return self
+        get { return self }
+        set {}
     }
     
     var output: HomeViewModelOutput {
@@ -44,6 +47,8 @@ class HomeViewModel: HomeViewModelProtocol, HomeViewModelInput, HomeViewModelOut
     init(productsReposatory: ProductsReposatoryProtocol = ProductsReposatory()) {
         self.productsReposatory = productsReposatory
     }
+    
+    var searchText: String = ""
     
     @Published
     var isFetching: Bool = true

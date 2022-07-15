@@ -14,30 +14,50 @@ struct HomeView<ViewModel: HomeViewModelProtocol>: View {
     
     var body: some View {
         
-        ZStack {
+        
+        NavigationView {
             
-            NavigationView {
+            ZStack {
                 
-                List(viewModel.output.products, id: \.id) { product in
+                Color("Background").edgesIgnoringSafeArea(.all)
+                
+                
+                VStack {
                     
-                    NavigationLink(destination: ProductDetailsView(viewModel: ProductDetailsViewModel(product: product))) {
-                        ProductCellView(proudct: product)
-                            .frame(maxWidth: .infinity, alignment: .leading)
+                    HomeBarView()
+                                    
+                    Spacer(minLength: 20)
+                    
+                    SearchScanView(searchText: self.viewModel.input.searchText)
+                    
+                    List(viewModel.output.products, id: \.id) { product in
+                        
+                        NavigationLink(destination: ProductDetailsView(viewModel: ProductDetailsViewModel(product: product))) {
+                            ProductCellView(proudct: product)
+                                .frame(maxWidth: .infinity, alignment: .leading)
+                        }
+                    }
+                    .padding(.horizontal)
+                    .listStyle(.plain)
+                    .refreshable {
+                        self.viewModel.input.refresherFired()
                     }
                     
+                   
                 }
-                .refreshable {
-                    self.viewModel.input.refresherFired()
+                
+                TapBarView()
+                
+                if viewModel.output.isFetching {
+                    LoadingView()
+                        .frame(maxWidth: .infinity)
                 }
-
-                .navigationTitle("Home")
                 
             }
             
-            if viewModel.output.isFetching {
-                LoadingView()
-            }
             
+            .navigationBarHidden(true)
+
         }
         
         .alert(item: $viewModel.output.alertItem) { alertItem in
@@ -57,4 +77,9 @@ struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
         HomeView(viewModel: HomeViewModel())
     }
+    
 }
+
+
+
+
