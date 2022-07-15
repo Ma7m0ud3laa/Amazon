@@ -237,7 +237,6 @@
 			children = (
 				1536D2562881EC1A0047DD92 /* SubViews */,
 				1536D1EE288024D90047DD92 /* HomeView.swift */,
-				1536D2442880450B0047DD92 /* ProductCellView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -466,6 +465,7 @@
 		1536D2562881EC1A0047DD92 /* SubViews */ = {
 			isa = PBXGroup;
 			children = (
+				1536D2442880450B0047DD92 /* ProductCellView.swift */,
 				1536D2572881ECD50047DD92 /* HomeBarView.swift */,
 				151E8ADA2881F34D00A86504 /* SearchScanView.swift */,
 				151E8ADC2881FDAC00A86504 /* TapBarView.swift */,
