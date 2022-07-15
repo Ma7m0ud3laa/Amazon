@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		151E8ADB2881F34D00A86504 /* SearchScanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 151E8ADA2881F34D00A86504 /* SearchScanView.swift */; };
+		151E8ADD2881FDAC00A86504 /* TapBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 151E8ADC2881FDAC00A86504 /* TapBarView.swift */; };
 		1536D1D1288024590047DD92 /* AmazonApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1536D1D0288024590047DD92 /* AmazonApp.swift */; };
 		1536D1D52880245C0047DD92 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1536D1D42880245C0047DD92 /* Assets.xcassets */; };
 		1536D1D82880245C0047DD92 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1536D1D72880245C0047DD92 /* Preview Assets.xcassets */; };
@@ -43,9 +45,13 @@
 		1536D243288042610047DD92 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1536D242288042610047DD92 /* LoadingView.swift */; };
 		1536D2452880450B0047DD92 /* ProductCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1536D2442880450B0047DD92 /* ProductCellView.swift */; };
 		1536D2472880502D0047DD92 /* CacheAsyncImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1536D2462880502D0047DD92 /* CacheAsyncImage.swift */; };
+		1536D2552881EA1A0047DD92 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1536D2542881EA1A0047DD92 /* Colors.xcassets */; };
+		1536D2582881ECD50047DD92 /* HomeBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1536D2572881ECD50047DD92 /* HomeBarView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		151E8ADA2881F34D00A86504 /* SearchScanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchScanView.swift; sourceTree = "<group>"; };
+		151E8ADC2881FDAC00A86504 /* TapBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapBarView.swift; sourceTree = "<group>"; };
 		1536D1CD288024590047DD92 /* Amazon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Amazon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1536D1D0288024590047DD92 /* AmazonApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmazonApp.swift; sourceTree = "<group>"; };
 		1536D1D42880245C0047DD92 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -84,6 +90,8 @@
 		1536D242288042610047DD92 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		1536D2442880450B0047DD92 /* ProductCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCellView.swift; sourceTree = "<group>"; };
 		1536D2462880502D0047DD92 /* CacheAsyncImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheAsyncImage.swift; sourceTree = "<group>"; };
+		1536D2542881EA1A0047DD92 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		1536D2572881ECD50047DD92 /* HomeBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeBarView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +148,7 @@
 				1536D1D62880245C0047DD92 /* Preview Content */,
 				1536D20B2880258D0047DD92 /* Info.plist */,
 				1536D1D42880245C0047DD92 /* Assets.xcassets */,
+				1536D2542881EA1A0047DD92 /* Colors.xcassets */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -226,6 +235,7 @@
 		1536D1ED288024D90047DD92 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				1536D2562881EC1A0047DD92 /* SubViews */,
 				1536D1EE288024D90047DD92 /* HomeView.swift */,
 				1536D2442880450B0047DD92 /* ProductCellView.swift */,
 			);
@@ -453,6 +463,16 @@
 			path = Utilites;
 			sourceTree = "<group>";
 		};
+		1536D2562881EC1A0047DD92 /* SubViews */ = {
+			isa = PBXGroup;
+			children = (
+				1536D2572881ECD50047DD92 /* HomeBarView.swift */,
+				151E8ADA2881F34D00A86504 /* SearchScanView.swift */,
+				151E8ADC2881FDAC00A86504 /* TapBarView.swift */,
+			);
+			path = SubViews;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -511,6 +531,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1536D2552881EA1A0047DD92 /* Colors.xcassets in Resources */,
 				1536D1D82880245C0047DD92 /* Preview Assets.xcassets in Resources */,
 				1536D1D52880245C0047DD92 /* Assets.xcassets in Resources */,
 			);
@@ -524,10 +545,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				1536D22D288026850047DD92 /* NetworkService.swift in Sources */,
+				151E8ADD2881FDAC00A86504 /* TapBarView.swift in Sources */,
 				1536D226288026850047DD92 /* Requestable.swift in Sources */,
 				1536D229288026850047DD92 /* DataTransferErrorResolver.swift in Sources */,
 				1536D231288026850047DD92 /* NetworkErrorLogger.swift in Sources */,
 				1536D1FE288024D90047DD92 /* ProductsReponse.swift in Sources */,
+				151E8ADB2881F34D00A86504 /* SearchScanView.swift in Sources */,
 				1536D243288042610047DD92 /* LoadingView.swift in Sources */,
 				1536D205288024D90047DD92 /* GeneralEndpoints.swift in Sources */,
 				1536D2452880450B0047DD92 /* ProductCellView.swift in Sources */,
@@ -548,6 +571,7 @@
 				1536D207288024D90047DD92 /* Cancellable.swift in Sources */,
 				1536D200288024D90047DD92 /* ProductsDTO.swift in Sources */,
 				1536D230288026850047DD92 /* DefaultNetworkErrorLogger.swift in Sources */,
+				1536D2582881ECD50047DD92 /* HomeBarView.swift in Sources */,
 				1536D227288026850047DD92 /* Endpoint.swift in Sources */,
 				1536D1FD288024D90047DD92 /* ProductsReposatoryProtocol.swift in Sources */,
 				1536D1D1288024590047DD92 /* AmazonApp.swift in Sources */,
