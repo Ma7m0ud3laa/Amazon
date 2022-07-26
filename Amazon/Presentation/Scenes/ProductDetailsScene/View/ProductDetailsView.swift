@@ -10,16 +10,17 @@ import SwiftUI
 struct ProductDetailsView<ViewModel: ProductDetailsViewModelProtocol>: View {
     
     var viewModel: ViewModel
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
     var body: some View {
         
         ZStack {
             
             Color("Background").edgesIgnoringSafeArea(.all)
-
+            
             
             ScrollView {
-            
+                
                 VStack {
                     
                     CacheAsyncImage(url: self.viewModel.output.imageURL,
@@ -35,7 +36,7 @@ struct ProductDetailsView<ViewModel: ProductDetailsViewModelProtocol>: View {
                     }
                                     .frame(maxWidth: .infinity)
                                     .aspectRatio(1, contentMode: .fit)
-     
+                    
                     Text(self.viewModel.output.name)
                         .foregroundColor(.black)
                         .font(.headline)
@@ -59,21 +60,25 @@ struct ProductDetailsView<ViewModel: ProductDetailsViewModelProtocol>: View {
                     
                 }
                 .navigationBarBackButtonHidden(true)
-                .navigationBarItems(leading:
-                                        Image(systemName: "chevron.left")
-                                            .padding(.all, 10)
-                                            .background(Color.white))
-                                            .cornerRadius(10)
+                .navigationBarItems(leading: Button(action: {
+                    presentationMode.wrappedValue.dismiss()
+                }, label: {
+                    Image(systemName: "chevron.left")
+                        .padding(.all, 10)
+                        .background(Color.white)
+                        .tint(Color.black)
+                        .cornerRadius(10)
+                }))
             }
             .edgesIgnoringSafeArea(.top)
-
+            
         }
     }
-        
+    
 }
 
 struct ProductDetailsView_Previews: PreviewProvider {
-
+    
     static var previews: some View {
         ProductDetailsView(viewModel: ProductDetailsViewModel(product: nil))
     }
